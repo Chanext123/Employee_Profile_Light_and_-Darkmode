@@ -1,0 +1,75 @@
+@media only screen and (max-width: 600px){
+    .navbar .navbar__left .searchbox{
+        background: transparent;
+        width: auto;
+        padding: 0;
+        margin-left: 10px;
+    }
+    .navbar .navbar__left .searchbox input{
+        width: 0;
+        padding: 0;
+    }
+
+    .searchbox input {
+        width: 0;
+        padding: 0;
+    }
+
+    .navbar .navbar__center ul li a{
+        padding-right: 0;
+        margin: 5px;
+    }
+
+    .container__main, .container__sidebar {
+        flex-basis: 100%;
+    }
+
+    .container__main {
+        font-size: 14px;
+    }
+
+    .profile-pic {
+        width: 100px;
+        margin-top: -50px;
+    }
+
+    .container__description {
+        font-size: 14px;
+    }
+
+    .profile-btn{
+        font-size: 10px;
+    }
+    .matual-connection span{
+        font-size: 12px;
+    }
+
+    .profile-btn a {
+        margin: 10px;
+    }
+
+    .edit-details {
+        margin-top: 10px;
+        width: 10px;
+    }
+
+    .container__main .container__profile .container__profile--inner .modal .modal-content{
+        margin-top: 50%;
+    }
+
+    textarea{
+        width: 100%;
+    }
+
+    .container__main .container__profile .container__profile--inner .modal .modal-content {
+        width: 80%;
+    }
+
+    .container__main .container__description .profile-desc-row .Download{
+        float: none;
+    }
+   
+
+
+
+}
