@@ -1,0 +1,76 @@
+$linktext: #18191A; 
+$button_seeall: #888;
+$titles:#000;
+$white:#fff;
+$line:#ccc;
+$navbar_boxShadow: rgba(0, 0, 0, 0.1);
+$btn_bg:#7d00d3;
+$bg_searchBar:#f5f2f2;
+$box-shadow_inset:rgba(0, 0, 0, 0.4);
+
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+}
+body {
+    background-color: $white;
+}
+
+@mixin backgroundStyle (){
+    background-color: $white;
+
+}
+
+@mixin backshadowStyle (){
+    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.4);
+}
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: $white;
+    padding: 6px 6%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 5px 10px $navbar_boxShadow;
+
+    .navbar__left {
+        display: flex;
+        align-items: center;
+
+        a img {
+            height: 2rem;
+            width: 5rem;
+        }
+
+       
+    }
+
+    .navbar__center ul li {
+        display: inline-block;
+        list-style: none;
+
+        a {
+            align-items: center;
+            display: flex;
+            font-size: 14px;
+            text-decoration: none;
+            color: $titles;
+            margin: 5px 20px;
+            position: relative;
+        }
+    }
+}
+/* ======= navbar end ====== */
+
+
+.container {
+    padding:  20px 6%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
