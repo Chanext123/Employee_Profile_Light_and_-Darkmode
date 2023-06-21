@@ -161,6 +161,9 @@ body {
   margin-left: -25px;
   margin-right: -25px;
 }
+.container__left-sidebar .left-sidebar__latestPost .latestPostAll {
+  display: none;
+}
 .container__left-sidebar .left-sidebar__likedPost {
   background-color: #fff;
   box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.4);
@@ -217,6 +220,9 @@ body {
   margin-top: 15px;
   margin-left: -25px;
   margin-right: -25px;
+}
+.container__left-sidebar .left-sidebar__likedPost .likedPostAll {
+  display: none;
 }
 .container__left-sidebar .reminder {
   background-color: #fff;
@@ -359,6 +365,8 @@ body {
   border-radius: 10px;
   padding: 15px 25px;
   text-align: center;
+  justify-content: center;
+  display: flex;
 }
 .container__right-sidebar .toggleDarkLight h3 {
   font-size: 13px;
@@ -366,8 +374,7 @@ body {
   margin-bottom: 20px;
 }
 .container__right-sidebar .toggleDarkLight .toggle {
-  margin-top: -18px;
-  padding: 0px 70px;
+  padding: 20px 40px;
   cursor: pointer;
   position: absolute;
 }
@@ -484,6 +491,64 @@ body {
   border-bottom: 1px solid #ccc;
   padding-bottom: 6px;
 }
+.container__main-content .post .post-stats .modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.container__main-content .post .post-stats .modal .modal-content {
+  border-radius: 10px;
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 25px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+}
+.container__main-content .post .post-stats .modal .modal-content .close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  color: #aaa;
+  font-size: 24px;
+  cursor: pointer;
+}
+.container__main-content .post .post-stats .modal .modal-content .close:hover,
+.container__main-content .post .post-stats .modal .modal-content .close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+  z-index: 1;
+}
+.container__main-content .post .post-stats .modal .modal-content textarea {
+  border: none;
+  justify-content: center;
+  width: 100%;
+  height: 100px;
+  resize: none;
+  outline: none;
+}
+.container__main-content .post .post-stats .modal .modal-content button {
+  cursor: pointer;
+  margin-top: 10px;
+  background: transparent;
+  border: 1px solid #7d00d3;
+  padding: 5px;
+  color: #7d00d3;
+  font-weight: 600;
+  border-radius: 3px;
+  margin-left: 10px;
+}
+.container__main-content .post .post-stats .modal .modal-content button:hover {
+  color: #fff;
+  background: #7d00d3;
+}
 .container__main-content .post .post-stats div {
   display: flex;
   align-items: center;
@@ -496,11 +561,15 @@ body {
   margin-left: 20px;
 }
 .container__main-content .post .post-activity {
+  cursor: pointer;
   display: flex;
   align-items: center;
   padding: 10px 0;
   font-size: 14px;
   font-weight: 500;
+}
+.container__main-content .post .post-activity .post-activity-link {
+  cursor: pointer;
 }
 .container__main-content .post .post-activity .post-activity-link img {
   width: 18px;
@@ -510,6 +579,49 @@ body {
   display: flex;
   align-items: center;
   margin-right: 15px;
+}
+.container__main-content .post .post-activity div .like-span.liked {
+  color: #7d00d3;
+}
+.container__main-content .post .post-activity div .like-span2.liked {
+  color: #7d00d3;
+}
+.container__main-content .post .post-activity div .like-span3.liked {
+  color: #7d00d3;
+}
+.container__main-content .post .post-activity div .like-span4.liked {
+  color: #7d00d3;
+}
+.container__main-content .post .post-activity div span {
+  cursor: pointer;
+}
+.container__main-content .post h5 {
+  align-items: center;
+  display: flex;
+  border: 1px solid #888;
+  border-radius: 20px;
+  padding: 10px 20px;
+  margin: 10px;
+  color: #000;
+  font-size: 11px;
+  font-weight: 400;
+}
+.container__main-content .post h5 .your-comment {
+  font-weight: bold;
+  color: #18191A;
+  margin-right: 10px;
+}
+.container__main-content .post h5 .delete-span {
+  color: #7d00d3;
+}
+.container__main-content .post h5 .edit-span {
+  color: #888;
+  padding-right: 10px;
+  display: none;
+}
+.container__main-content .post .edit-delete-span {
+  cursor: pointer;
+  padding-left: 1rem;
 }
 
 /* ========= media query ======= */
@@ -551,6 +663,12 @@ body {
   }
   .post-activity img {
     margin-right: 0;
+  }
+  .container__right-sidebar {
+    display: none;
+  }
+  .container__left-sidebar {
+    display: none;
   }
 }
 body.dark-theme .container,
@@ -668,4 +786,14 @@ body.dark-theme .container__main-content .post .post_caption {
 }
 body.dark-theme .container__main-content .post .post-stats {
   border-bottom: 2px solid #18191a;
+}
+body.dark-theme .container__main-content .post h5 {
+  color: #ccc;
+  font-weight: 400;
+  border: 2px solid #18191a;
+}
+body.dark-theme .container__main-content .post .your-comment {
+  font-weight: bold;
+  color: #ccc;
+  margin-right: 10px;
 }

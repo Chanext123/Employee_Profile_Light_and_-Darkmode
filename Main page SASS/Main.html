@@ -61,6 +61,8 @@
             </div>
 
 
+            <!-- =================== for the latest post ================ -->
+
             <div class="left-sidebar__latestPost" id="latestPost">
                 <h3><img src="image/engagement.png" alt="">Latest post</h3>
 
@@ -68,9 +70,20 @@
                 </div>
 
                 <a href=""><img src="image/smart-content.png" alt="">Lorem, ipsum</a>
-                <a href=""><img src="image/smart-content.png" alt="">Lorem, ipsum.</a><br>
-                <button>See all</button>
+                <a href=""><img src="image/smart-content.png" alt="">Lorem, ipsum.</a>
+
+                <!-- -------- show more in lates post -------- -->
+
+                <div id="try-1" class="latestPostAll">
+
+                    <a href=""><img src="image/smart-content.png" alt="">Lorem, ipsum</a>
+                    <a href=""><img src="image/smart-content.png" alt="">Lorem, ipsum.</a><br>
+                </div>
+
+
+                <button onclick="toggleMembers(1)" id="toggle-btn-1">See all</button>
             </div>
+
 
             <div class="left-sidebar__likedPost" id="likedPost">
                 <h3><img src="image/engagement.png" alt="">Liked post</h3>
@@ -81,8 +94,23 @@
                 <a href=""><img src="image/social-media.png" alt="">Lorem, ipsum &middot; <span> 10 mins ago</span></a>
                 <a href=""><img src="image/social-media.png" alt="">Lorem, ipsum &middot; <span> 10 mins
                         ago</span></a><br>
-                <button>See all</button>
+
+                <!-- -------- show more in liked post -------- -->
+
+                <div id="test-1" class="likedPostAll">
+
+                    <a href=""><img src="image/social-media.png" alt="">Lorem, ipsum &middot; <span> 10 mins
+                            ago</span></a>
+                    <a href=""><img src="image/social-media.png" alt="">Lorem, ipsum &middot; <span> 10 mins
+                            ago</span></a><br>
+                </div>
+
+
+                <button onclick="toggleLiked(1)" id="toggle-bt-1">See all</button>
             </div>
+
+
+            
 
             <div class="reminder" id="reminder">
                 <p><img src="image/social-media-ads.png" alt="">Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -144,13 +172,20 @@
                 <div class="post-stats">
                     <div>
                         <img src="image/thumbsup.png" alt="">
-                        <!-- <img src="image/love.png" alt="">
-                        <img src="image/clap.png" alt=""> -->
-                        <span class="liked">Christian Misa and 69 others</span>
+                        <span id="like-message"></span>
+                        <span class="liked"> &nbsp; 69 others liked this post</span>
                     </div>
 
                     <div>
-                        <span>22 comments &middot; 40 shares</span>
+                        <span id="comment-count">0 Comments</span>
+                    </div>
+
+                    <div id="comment-modal" class="modal">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <textarea id="comment-input" placeholder="Leave a comment"></textarea>
+                            <button id="comment-btn">Submit</button>
+                        </div>
                     </div>
                 </div>
 
@@ -159,19 +194,23 @@
 
                     <div class="post-activity-link">
                         <img src="image/like.png" alt="">
-                        <span>Like</span>
+                        <span class="like-span">Like</span>
                     </div>
 
 
                     <div class="post-activity-link">
                         <img src="image/comment.png" alt="">
-                        <span>Comment</span>
-                    </div>
+                        <span class="comment-span">Comment</span>
+
+                    </div><br>
+
+
 
 
 
 
                 </div>
+                <div id="comment-section"></div>
             </div>
 
 
@@ -198,9 +237,9 @@
                 <div class="post-stats">
                     <div>
                         <img src="image/thumbsup.png" alt="">
-                        <!-- <img src="image/love.png" alt="">
-                        <img src="image/clap.png" alt=""> -->
-                        <span class="liked">Christian Misa and 69 others</span>
+                        <p id="like-message2"></p>
+                        <span class="liked"> &nbsp; 13 others liked this post</span>
+
                     </div>
 
                     <div>
@@ -213,7 +252,7 @@
 
                     <div class="post-activity-link">
                         <img src="image/like.png" alt="">
-                        <span>Like</span>
+                        <span class="like-span2">Like</span>
                     </div>
 
 
@@ -250,7 +289,9 @@
                         <img src="image/thumbsup.png" alt="">
                         <!-- <img src="image/love.png" alt="">
                         <img src="image/clap.png" alt=""> -->
-                        <span class="liked">Christian Misa and 69 others</span>
+                        <p id="like-message3"></p>
+                        <span class="liked"> &nbsp; 9 others liked this post</span>
+
                     </div>
 
                     <div>
@@ -263,7 +304,7 @@
 
                     <div class="post-activity-link">
                         <img src="image/like.png" alt="">
-                        <span>Like</span>
+                        <span class="like-span3">Like</span>
                     </div>
 
 
@@ -301,7 +342,8 @@
                         <img src="image/thumbsup.png" alt="">
                         <!-- <img src="image/love.png" alt="">
                         <img src="image/clap.png" alt=""> -->
-                        <span class="liked">Christian Misa and 69 others</span>
+                        <p id="like-message4"></p>
+                        <span class="liked"> &nbsp; 50 others liked this post</span>
                     </div>
 
                     <div>
@@ -314,7 +356,7 @@
 
                     <div class="post-activity-link">
                         <img src="image/like.png" alt="">
-                        <span>Like</span>
+                        <span class="like-span4">Like</span>
                     </div>
 
 
@@ -322,9 +364,6 @@
                         <img src="image/comment.png" alt="">
                         <span>Comment</span>
                     </div>
-
-
-
 
                 </div>
             </div>

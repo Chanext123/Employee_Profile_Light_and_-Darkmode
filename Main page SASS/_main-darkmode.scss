@@ -160,6 +160,17 @@ body.dark-theme {
                 border-bottom: 2px solid $bgd;
 
             }
+            h5 {
+                color: $line;
+                font-weight: 400;
+                border: 2px solid $bgd;
+
+            }
+            .your-comment {
+                font-weight: bold;
+                color: $line;
+                margin-right: 10px;
+            }
         }
     }
 }
