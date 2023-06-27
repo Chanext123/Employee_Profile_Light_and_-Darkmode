@@ -29,6 +29,26 @@ body.dark-theme {
     .post,
     .navbar {
         background-color: $whited;
+
+        .icon_left_right .icon-line{
+            background: $whited;
+        }
+
+        #hamburger-icon div {
+            background-color: $white;
+        }
+
+        #hamburger-icon .mobile-menu {
+            background: $titles;
+
+            li {
+                background: $whited;
+
+                a {
+                    color: $white;
+                }
+            }
+        }
     }
     .container {
         background-color: $bgd;
@@ -172,5 +192,10 @@ body.dark-theme {
                 margin-right: 10px;
             }
         }
+    }
+
+
+    .footer .icon_left_right, .icon-line{
+        background: $whited;
     }
 }

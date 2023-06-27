@@ -19,6 +19,7 @@ body {
   top: 0;
   z-index: 100;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  /* ================== navbar for the mobile version ================= */
 }
 .navbar .navbar__left {
   display: flex;
@@ -41,6 +42,84 @@ body {
   margin: 5px 20px;
   position: relative;
 }
+.navbar #hamburger-icon {
+  margin: auto 0;
+  display: none;
+  cursor: pointer;
+}
+.navbar #hamburger-icon div {
+  width: 20px;
+  height: 3px;
+  background-color: #000;
+  margin: 3px 0;
+  transition: 0.4s;
+}
+.navbar .open .bar1 {
+  transform: rotate(-45deg) translate(-4px, 7px);
+}
+.navbar .open .bar2 {
+  opacity: 0;
+}
+.navbar .open .bar3 {
+  transform: rotate(45deg) translate(-1px, -5px);
+}
+.navbar .open .mobile-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.navbar .mobile-menu {
+  background-color: #fff;
+  display: none;
+  position: absolute;
+  top: 45px;
+  left: 0;
+  height: calc(100vh - 40px);
+  width: 100%;
+  overflow-y: auto;
+}
+.navbar .mobile-menu li {
+  background-color: #fff;
+  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.4);
+  margin: 5px 30px;
+  list-style: none;
+  padding: 10px;
+  border-radius: 5px;
+}
+.navbar .mobile-menu li a {
+  align-items: center;
+  display: flex;
+  font-size: 14px;
+  text-decoration: none;
+  color: #000;
+  margin: 5px 20px;
+  position: relative;
+}
+.navbar .mobile-menu li a i {
+  padding-right: 7px;
+  color: #7d00d3;
+}
+.navbar .mobile-menu .dropdown {
+  position: relative;
+  display: inline-block;
+}
+.navbar .mobile-menu .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+.navbar .mobile-menu .dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.navbar .mobile-menu::-webkit-scrollbar {
+  display: none;
+}
 
 /* ======= navbar end ====== */
 .container {
@@ -48,6 +127,54 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+
+.footer {
+  display: none;
+  border-radius: 0px;
+}
+.footer .icon_left_right {
+  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.4);
+  position: fixed;
+  left: 0;
+  bottom: 1px;
+  width: 100%;
+  height: 40px; /* Adjust the height as needed */
+  background-color: #fff;
+  text-align: center;
+}
+
+.icon_left_right {
+  padding-bottom: 60px;
+}
+.icon_left_right .icon-line {
+  background: transparent;
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 30px;
+}
+.icon_left_right .icon-line .icon {
+  padding: 5px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 5px;
+}
+.icon_left_right .icon-line .icon i {
+  color: #7d00d3;
+  font-size: 40px;
+}
+.icon_left_right .icon-line .toggle {
+  cursor: pointer;
+  background: transparent;
+}
+.icon_left_right .icon-line #light,
+.icon_left_right .icon-line #dark {
+  width: 30px;
+}
+.icon_left_right .icon-line #light {
+  display: none;
 }
 
 /* ===== left sidebar ===== */
@@ -103,7 +230,7 @@ body {
   font-size: 13px;
 }
 .container__left-sidebar .profile--box .profile--info ul li a {
-  color: #18191A;
+  color: #18191a;
   text-decoration: none;
   font-weight: 500;
   font-size: 12px;
@@ -137,7 +264,7 @@ body {
   font-size: 12px;
   text-decoration: none;
   font-weight: 500;
-  color: #18191A;
+  color: #18191a;
   margin: 3px 0;
 }
 .container__left-sidebar .left-sidebar__latestPost a img {
@@ -193,7 +320,7 @@ body {
   font-size: 12px;
   text-decoration: none;
   font-weight: 500;
-  color: #18191A;
+  color: #18191a;
   margin: 3px 0;
 }
 .container__left-sidebar .left-sidebar__likedPost a img {
@@ -352,7 +479,7 @@ body {
   font-size: 12px;
   text-decoration: none;
   font-weight: 500;
-  color: #18191A;
+  color: #18191a;
 }
 .container__right-sidebar .left-sidebar__companyLink a img {
   margin-left: 20px;
@@ -367,23 +494,48 @@ body {
   text-align: center;
   justify-content: center;
   display: flex;
+  /* Optional styles for better visual appearance */
 }
-.container__right-sidebar .toggleDarkLight h3 {
-  font-size: 13px;
-  color: #000;
-  margin-bottom: 20px;
-}
-.container__right-sidebar .toggleDarkLight .toggle {
-  padding: 20px 40px;
+.container__right-sidebar .toggleDarkLight .toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  background-color: #ccc;
+  border-radius: 34px;
+  overflow: hidden;
   cursor: pointer;
+}
+.container__right-sidebar .toggleDarkLight .toggle-switch .slider {
   position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 30px;
+  height: 30px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: transform 0.3s;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
 }
-.container__right-sidebar .toggleDarkLight #light,
-.container__right-sidebar .toggleDarkLight #dark {
-  width: 35px;
+.container__right-sidebar .toggleDarkLight .toggle-switch .toggle-label {
+  position: absolute;
+  top: 50%;
+  left: 45px;
+  transform: translateY(-50%);
+  color: #fff;
 }
-.container__right-sidebar .toggleDarkLight #light {
-  display: none;
+.container__right-sidebar .toggleDarkLight .toggle-switch.active .slider {
+  transform: translateX(26px);
+}
+.container__right-sidebar .toggleDarkLight .toggle-switch.active .toggle-label {
+  left: 5px;
+  color: #000;
+}
+.container__right-sidebar .toggleDarkLight .toggle-switch .slider {
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+}
+.container__right-sidebar .toggleDarkLight .toggle-switch.active {
+  background-color: #000;
 }
 
 /* ===== main sidebar ===== */
@@ -608,7 +760,7 @@ body {
 }
 .container__main-content .post h5 .your-comment {
   font-weight: bold;
-  color: #18191A;
+  color: #18191a;
   margin-right: 10px;
 }
 .container__main-content .post h5 .delete-span {
@@ -625,6 +777,11 @@ body {
 }
 
 /* ========= media query ======= */
+@media only screen and (max-width: 768px) {
+  .container {
+    display: flex;
+  }
+}
 @media only screen and (max-width: 600px) {
   .navbar .navbar__left .searchbox {
     background: transparent;
@@ -647,7 +804,8 @@ body {
   .container {
     padding: 15px 35;
   }
-  .container .container__left-sidebar, .container__right-sidebar {
+  .container .container__left-sidebar,
+  .container__right-sidebar {
     flex-basis: 100%;
     position: relative;
     top: unset;
@@ -664,11 +822,56 @@ body {
   .post-activity img {
     margin-right: 0;
   }
-  .container__right-sidebar {
+  .navbar .navbar__center {
     display: none;
   }
-  .container__left-sidebar {
+  .navbar #hamburger-icon {
+    display: block;
+  }
+  .navbar .icon_left_right .icon-line {
+    display: flex;
+  }
+  .container .profile--box,
+  .container .left-sidebar__latestPost,
+  .container .left-sidebar__likedPost,
+  .container .reminder,
+  .container .iconSocial,
+  .container .right-sidebar--upcomingEvents,
+  .container .left-sidebar__companyLink,
+  .container .toggleDarkLight,
+  .container .container__main-content {
     display: none;
+  }
+  .footer {
+    display: block;
+  }
+  .footer .icon_left_right .icon-line {
+    display: flex;
+  }
+  .footer .icon_left_right .icon-line .icon {
+    width: 10px;
+  }
+  .footer .icon_left_right .icon-line .icon i {
+    font-size: 15px;
+    padding: 0;
+    margin: 0;
+  }
+  .footer .icon_left_right .icon-line .toggle #light,
+  .footer .icon_left_right .icon-line .toggle #dark {
+    width: 25px;
+  }
+  .container .container__left-sidebar .left-sidebar__latestPost, .profile--box {
+    margin-bottom: 600px;
+  }
+  .container .left-sidebar__likedPost {
+    margin-bottom: 600px;
+  }
+  .container .container__right-sidebar .right-sidebar--upcomingEvents {
+    margin: 100% 0px;
+    margin-top: -10px;
+  }
+  .container .container__right-sidebar .left-sidebar__companyLink {
+    margin-bottom: 500px;
   }
 }
 body.dark-theme .container,
@@ -689,6 +892,101 @@ body.dark-theme .create-post,
 body.dark-theme .post,
 body.dark-theme .navbar {
   background-color: #242526;
+}
+body.dark-theme .container .icon_left_right .icon-line,
+body.dark-theme .navbar .icon_left_right .icon-line,
+body.dark-theme .navbar__center .icon_left_right .icon-line,
+body.dark-theme .navbar__left .icon_left_right .icon-line,
+body.dark-theme .profile--box .icon_left_right .icon-line,
+body.dark-theme .profile--info .icon_left_right .icon-line,
+body.dark-theme .left-sidebar__latestPost .icon_left_right .icon-line,
+body.dark-theme .left-sidebar__likedPost .icon_left_right .icon-line,
+body.dark-theme .reminder .icon_left_right .icon-line,
+body.dark-theme .container__right-sidebar .icon_left_right .icon-line,
+body.dark-theme .right-sidebar--upcomingEvents .icon_left_right .icon-line,
+body.dark-theme .left-sidebar__companyLink .icon_left_right .icon-line,
+body.dark-theme .toggleDarkLight .icon_left_right .icon-line,
+body.dark-theme .container__main-content .icon_left_right .icon-line,
+body.dark-theme .create-post .icon_left_right .icon-line,
+body.dark-theme .post .icon_left_right .icon-line,
+body.dark-theme .navbar .icon_left_right .icon-line {
+  background: #242526;
+}
+body.dark-theme .container #hamburger-icon div,
+body.dark-theme .navbar #hamburger-icon div,
+body.dark-theme .navbar__center #hamburger-icon div,
+body.dark-theme .navbar__left #hamburger-icon div,
+body.dark-theme .profile--box #hamburger-icon div,
+body.dark-theme .profile--info #hamburger-icon div,
+body.dark-theme .left-sidebar__latestPost #hamburger-icon div,
+body.dark-theme .left-sidebar__likedPost #hamburger-icon div,
+body.dark-theme .reminder #hamburger-icon div,
+body.dark-theme .container__right-sidebar #hamburger-icon div,
+body.dark-theme .right-sidebar--upcomingEvents #hamburger-icon div,
+body.dark-theme .left-sidebar__companyLink #hamburger-icon div,
+body.dark-theme .toggleDarkLight #hamburger-icon div,
+body.dark-theme .container__main-content #hamburger-icon div,
+body.dark-theme .create-post #hamburger-icon div,
+body.dark-theme .post #hamburger-icon div,
+body.dark-theme .navbar #hamburger-icon div {
+  background-color: #fff;
+}
+body.dark-theme .container #hamburger-icon .mobile-menu,
+body.dark-theme .navbar #hamburger-icon .mobile-menu,
+body.dark-theme .navbar__center #hamburger-icon .mobile-menu,
+body.dark-theme .navbar__left #hamburger-icon .mobile-menu,
+body.dark-theme .profile--box #hamburger-icon .mobile-menu,
+body.dark-theme .profile--info #hamburger-icon .mobile-menu,
+body.dark-theme .left-sidebar__latestPost #hamburger-icon .mobile-menu,
+body.dark-theme .left-sidebar__likedPost #hamburger-icon .mobile-menu,
+body.dark-theme .reminder #hamburger-icon .mobile-menu,
+body.dark-theme .container__right-sidebar #hamburger-icon .mobile-menu,
+body.dark-theme .right-sidebar--upcomingEvents #hamburger-icon .mobile-menu,
+body.dark-theme .left-sidebar__companyLink #hamburger-icon .mobile-menu,
+body.dark-theme .toggleDarkLight #hamburger-icon .mobile-menu,
+body.dark-theme .container__main-content #hamburger-icon .mobile-menu,
+body.dark-theme .create-post #hamburger-icon .mobile-menu,
+body.dark-theme .post #hamburger-icon .mobile-menu,
+body.dark-theme .navbar #hamburger-icon .mobile-menu {
+  background: #000;
+}
+body.dark-theme .container #hamburger-icon .mobile-menu li,
+body.dark-theme .navbar #hamburger-icon .mobile-menu li,
+body.dark-theme .navbar__center #hamburger-icon .mobile-menu li,
+body.dark-theme .navbar__left #hamburger-icon .mobile-menu li,
+body.dark-theme .profile--box #hamburger-icon .mobile-menu li,
+body.dark-theme .profile--info #hamburger-icon .mobile-menu li,
+body.dark-theme .left-sidebar__latestPost #hamburger-icon .mobile-menu li,
+body.dark-theme .left-sidebar__likedPost #hamburger-icon .mobile-menu li,
+body.dark-theme .reminder #hamburger-icon .mobile-menu li,
+body.dark-theme .container__right-sidebar #hamburger-icon .mobile-menu li,
+body.dark-theme .right-sidebar--upcomingEvents #hamburger-icon .mobile-menu li,
+body.dark-theme .left-sidebar__companyLink #hamburger-icon .mobile-menu li,
+body.dark-theme .toggleDarkLight #hamburger-icon .mobile-menu li,
+body.dark-theme .container__main-content #hamburger-icon .mobile-menu li,
+body.dark-theme .create-post #hamburger-icon .mobile-menu li,
+body.dark-theme .post #hamburger-icon .mobile-menu li,
+body.dark-theme .navbar #hamburger-icon .mobile-menu li {
+  background: #242526;
+}
+body.dark-theme .container #hamburger-icon .mobile-menu li a,
+body.dark-theme .navbar #hamburger-icon .mobile-menu li a,
+body.dark-theme .navbar__center #hamburger-icon .mobile-menu li a,
+body.dark-theme .navbar__left #hamburger-icon .mobile-menu li a,
+body.dark-theme .profile--box #hamburger-icon .mobile-menu li a,
+body.dark-theme .profile--info #hamburger-icon .mobile-menu li a,
+body.dark-theme .left-sidebar__latestPost #hamburger-icon .mobile-menu li a,
+body.dark-theme .left-sidebar__likedPost #hamburger-icon .mobile-menu li a,
+body.dark-theme .reminder #hamburger-icon .mobile-menu li a,
+body.dark-theme .container__right-sidebar #hamburger-icon .mobile-menu li a,
+body.dark-theme .right-sidebar--upcomingEvents #hamburger-icon .mobile-menu li a,
+body.dark-theme .left-sidebar__companyLink #hamburger-icon .mobile-menu li a,
+body.dark-theme .toggleDarkLight #hamburger-icon .mobile-menu li a,
+body.dark-theme .container__main-content #hamburger-icon .mobile-menu li a,
+body.dark-theme .create-post #hamburger-icon .mobile-menu li a,
+body.dark-theme .post #hamburger-icon .mobile-menu li a,
+body.dark-theme .navbar #hamburger-icon .mobile-menu li a {
+  color: #fff;
 }
 body.dark-theme .container {
   background-color: #18191a;
@@ -796,4 +1094,7 @@ body.dark-theme .container__main-content .post .your-comment {
   font-weight: bold;
   color: #ccc;
   margin-right: 10px;
+}
+body.dark-theme .footer .icon_left_right, body.dark-theme .icon-line {
+  background: #242526;
 }

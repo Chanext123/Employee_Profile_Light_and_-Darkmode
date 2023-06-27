@@ -1,3 +1,123 @@
+// ================================ for the switch toggle =====================
+document.addEventListener('DOMContentLoaded', function () {
+  var toggleSwitch = document.querySelector('.toggle-switch');
+  toggleSwitch.addEventListener('click', function () {
+      toggleSwitch.classList.toggle('active');
+      var toggleLabel = toggleSwitch.querySelector('.toggle-label');
+      var currentState = toggleSwitch.classList.contains('active') ? '' : '';
+      toggleLabel.textContent = currentState;
+
+      // Retrieve the current state
+      console.log(currentState);
+  });
+});
+
+
+
+var activeContent = null;
+// ------------ for profile box -------------
+var activeContent = null;
+
+function toggleContent(contentId) {
+    var content = document.getElementById(contentId);
+
+    if (activeContent !== content) {
+        if (activeContent !== null) {
+            activeContent.style.display = 'none';
+        }
+        content.style.display = 'block';
+        activeContent = content;
+    }
+}
+
+// -------------- for the latest post --------------
+var activeContent = null;
+
+function togglePost(contentId) {
+    var content = document.getElementById(contentId);
+
+    if (activeContent !== content) {
+        if (activeContent !== null) {
+            activeContent.style.display = 'none';
+        }
+        content.style.display = 'block';
+        activeContent = content;
+    }
+}
+
+// -------------- for the liked post --------------
+
+
+function toggleLikedPost(contentId) {
+    var content = document.getElementById(contentId);
+
+    if (activeContent !== content) {
+        if (activeContent !== null) {
+            activeContent.style.display = 'none';
+        }
+        content.style.display = 'block';
+        activeContent = content;
+    }
+}
+
+
+// -------------- for the upcoming event --------------
+
+
+function toggleUpcomingEvent(contentId) {
+  var content = document.getElementById(contentId);
+
+  if (activeContent !== content) {
+      if (activeContent !== null) {
+          activeContent.style.display = 'none';
+      }
+      content.style.display = 'block';
+      activeContent = content;
+  }
+}
+
+
+// -------------- for the comapany link --------------
+
+
+function toggleCompanyLink(contentId) {
+  var content = document.getElementById(contentId);
+
+  if (activeContent !== content) {
+      if (activeContent !== null) {
+          activeContent.style.display = 'none';
+      }
+      content.style.display = 'block';
+      activeContent = content;
+  }
+}
+
+// -------------- for the home --------------
+
+
+function toggleHome(contentId) {
+  var content = document.getElementById(contentId);
+
+  if (activeContent !== content) {
+      if (activeContent !== null) {
+          activeContent.style.display = 'none';
+      }
+      content.style.display = 'block';
+      activeContent = content;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 // ========== to close the reminder =========
 
@@ -75,6 +195,42 @@ checkTheme();
 
 
 
+// Function to the dark-mode
+
+function call(name) {
+  return document.querySelector(name);
+}
+
+const nightD = call("#darkD");
+const lightD = call("#lightD");
+
+nightD.addEventListener("click", () => {
+  nightD.style.display = "none";
+  lightD.style.display = "block";
+  document.body.classList.add("dark-theme");
+  localStorage.setItem("theme", "dark-theme");
+});
+
+lightD.addEventListener("click", () => {
+  nightD.style.display = "block";
+  lightD.style.display = "none";
+  document.body.classList.remove("dark-theme");
+  localStorage.removeItem("theme");
+});
+
+function checkTheme() {
+  const localStorageTheme = localStorage.getItem("theme");
+
+  if (localStorageTheme !== null && localStorageTheme === "dark-theme") {
+    document.body.classList.add("dark-theme");
+  }
+}
+
+checkTheme();
+
+
+
+
 // ================ for the liked react =============
 
 const likeSpan = document.querySelector('.like-span');
@@ -129,43 +285,43 @@ function displayComments() {
   commentSection.innerHTML = '';
 
   for (let i = 0; i < comments.length; i++) {
-      const commentElement = document.createElement('h5');
+    const commentElement = document.createElement('h5');
 
-      const yourCommentElement = document.createElement('span');
-      yourCommentElement.textContent = "You commented: ";
-      yourCommentElement.classList.add('your-comment');
-      commentElement.appendChild(yourCommentElement);
+    const yourCommentElement = document.createElement('span');
+    yourCommentElement.textContent = "You commented: ";
+    yourCommentElement.classList.add('your-comment');
+    commentElement.appendChild(yourCommentElement);
 
-      const commentText = document.createElement('span');
-      commentText.textContent = comments[i];
-      commentElement.appendChild(commentText);
+    const commentText = document.createElement('span');
+    commentText.textContent = comments[i];
+    commentElement.appendChild(commentText);
 
-      const editDeleteSpan = document.createElement('span');
-      editDeleteSpan.classList.add('edit-delete-span');
-      const editSpan = document.createElement('span');
-      editSpan.textContent = 'Edit';
-      editSpan.classList.add('edit-span');
-      const deleteSpan = document.createElement('span');
-      deleteSpan.textContent = 'Remove';
-      deleteSpan.classList.add('delete-span');
-      editDeleteSpan.appendChild(editSpan);
-      editDeleteSpan.appendChild(deleteSpan);
-      commentElement.appendChild(editDeleteSpan);
+    const editDeleteSpan = document.createElement('span');
+    editDeleteSpan.classList.add('edit-delete-span');
+    const editSpan = document.createElement('span');
+    editSpan.textContent = 'Edit';
+    editSpan.classList.add('edit-span');
+    const deleteSpan = document.createElement('span');
+    deleteSpan.textContent = 'Remove';
+    deleteSpan.classList.add('delete-span');
+    editDeleteSpan.appendChild(editSpan);
+    editDeleteSpan.appendChild(deleteSpan);
+    commentElement.appendChild(editDeleteSpan);
 
-      editSpan.addEventListener('click', function () {
-          commentModal.style.display = 'block';
-          commentInput.value = comments[i];
-          editingIndex = i;
-      });
+    editSpan.addEventListener('click', function () {
+      commentModal.style.display = 'block';
+      commentInput.value = comments[i];
+      editingIndex = i;
+    });
 
-      deleteSpan.addEventListener('click', function () {
-          comments.splice(i, 1);
-          editingIndex = -1;
-          displayComments();
-          updateCommentCount();
-      });
+    deleteSpan.addEventListener('click', function () {
+      comments.splice(i, 1);
+      editingIndex = -1;
+      displayComments();
+      updateCommentCount();
+    });
 
-      commentSection.appendChild(commentElement);
+    commentSection.appendChild(commentElement);
   }
 }
 
@@ -243,3 +399,45 @@ likeSpan4.addEventListener('click', function () {
   isLiked4 = !isLiked4;
   likeSpan4.classList.toggle('liked');
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ================= for mobile version navbar =======================
+
+function toggleMobileMenu(menu) {
+  menu.classList.toggle('open');
+}
+
+
+
+// ====================== for the dropdown ================
+function toggleDropdown() {
+  var dropdownContent = document.getElementById("myDropdown");
+  if (dropdownContent.style.display === "none") {
+    dropdownContent.style.display = "block";
+  } else {
+    dropdownContent.style.display = "none";
+  }
+}
