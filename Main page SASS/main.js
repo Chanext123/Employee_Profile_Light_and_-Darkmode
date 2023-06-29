@@ -1,16 +1,4 @@
 // ================================ for the switch toggle =====================
-document.addEventListener('DOMContentLoaded', function () {
-  var toggleSwitch = document.querySelector('.toggle-switch');
-  toggleSwitch.addEventListener('click', function () {
-      toggleSwitch.classList.toggle('active');
-      var toggleLabel = toggleSwitch.querySelector('.toggle-label');
-      var currentState = toggleSwitch.classList.contains('active') ? '' : '';
-      toggleLabel.textContent = currentState;
-
-      // Retrieve the current state
-      console.log(currentState);
-  });
-});
 
 
 
@@ -110,15 +98,6 @@ function toggleHome(contentId) {
 
 
 
-
-
-
-
-
-
-
-
-
 // ========== to close the reminder =========
 
 const reminder = document.getElementById('reminder');
@@ -157,29 +136,21 @@ function toggleLiked(divId) {
 }
 
 
-
-
-// Function to the dark-mode
-
+// ============================== Function for dark mode desktop ============================
 function call(name) {
   return document.querySelector(name);
 }
 
-const night = call("#dark");
-const light = call("#light");
+const themeToggle = call("#themeToggle");
 
-night.addEventListener("click", () => {
-  night.style.display = "none";
-  light.style.display = "block";
-  document.body.classList.add("dark-theme");
-  localStorage.setItem("theme", "dark-theme");
-});
-
-light.addEventListener("click", () => {
-  night.style.display = "block";
-  light.style.display = "none";
-  document.body.classList.remove("dark-theme");
-  localStorage.removeItem("theme");
+themeToggle.addEventListener("change", () => {
+  if (themeToggle.checked) {
+    document.body.classList.add("dark-theme");
+    localStorage.setItem("theme", "dark-theme");
+  } else {
+    document.body.classList.remove("dark-theme");
+    localStorage.removeItem("theme");
+  }
 });
 
 function checkTheme() {
@@ -187,6 +158,7 @@ function checkTheme() {
 
   if (localStorageTheme !== null && localStorageTheme === "dark-theme") {
     document.body.classList.add("dark-theme");
+    themeToggle.checked = true;
   }
 }
 
@@ -194,39 +166,36 @@ checkTheme();
 
 
 
-
-// Function to the dark-mode
+// ============================== Function for dark mode mobile ============================
 
 function call(name) {
   return document.querySelector(name);
 }
 
-const nightD = call("#darkD");
-const lightD = call("#lightD");
+const themeToggleMobile = call("#themeMobile");
 
-nightD.addEventListener("click", () => {
-  nightD.style.display = "none";
-  lightD.style.display = "block";
-  document.body.classList.add("dark-theme");
-  localStorage.setItem("theme", "dark-theme");
+themeToggleMobile.addEventListener("change", () => {
+  if (themeToggleMobile.checked) {
+    document.body.classList.add("dark-theme");
+    localStorage.setItem("theme", "dark-theme");
+  } else {
+    document.body.classList.remove("dark-theme");
+    localStorage.removeItem("theme");
+  }
 });
 
-lightD.addEventListener("click", () => {
-  nightD.style.display = "block";
-  lightD.style.display = "none";
-  document.body.classList.remove("dark-theme");
-  localStorage.removeItem("theme");
-});
-
-function checkTheme() {
+function checkThemeMobile() {
   const localStorageTheme = localStorage.getItem("theme");
 
   if (localStorageTheme !== null && localStorageTheme === "dark-theme") {
     document.body.classList.add("dark-theme");
+    themeToggleMobile.checked = true;
   }
 }
 
-checkTheme();
+checkThemeMobile();
+
+
 
 
 
@@ -399,24 +368,6 @@ likeSpan4.addEventListener('click', function () {
   isLiked4 = !isLiked4;
   likeSpan4.classList.toggle('liked');
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

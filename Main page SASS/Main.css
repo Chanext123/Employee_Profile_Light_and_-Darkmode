@@ -146,6 +146,7 @@ body {
 
 .icon_left_right {
   padding-bottom: 60px;
+  margin-bottom: -2px;
 }
 .icon_left_right .icon-line {
   background: transparent;
@@ -165,16 +166,53 @@ body {
   color: #7d00d3;
   font-size: 40px;
 }
-.icon_left_right .icon-line .toggle {
+.icon_left_right .icon-line .toggleDarkLight h3 {
+  font-size: 13px;
+  color: #000;
+  margin-bottom: 20px;
+}
+.icon_left_right .icon-line .toggleDarkLight .toggle {
+  position: relative;
+  display: inline-block;
+  width: 45px;
+  height: 22px;
+}
+.icon_left_right .icon-line .toggleDarkLight .toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.icon_left_right .icon-line .toggleDarkLight .toggle .slider {
+  position: absolute;
   cursor: pointer;
-  background: transparent;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
 }
-.icon_left_right .icon-line #light,
-.icon_left_right .icon-line #dark {
-  width: 30px;
+.icon_left_right .icon-line .toggleDarkLight .toggle .slider:before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 1px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
 }
-.icon_left_right .icon-line #light {
-  display: none;
+.icon_left_right .icon-line .toggleDarkLight .toggle input:checked + .slider {
+  background-color: #18191a;
+}
+.icon_left_right .icon-line .toggleDarkLight .toggle input:checked + .slider:before {
+  transform: translateX(26px);
+}
+.icon_left_right .icon-line .toggleDarkLight .toggle .slider.round {
+  border-radius: 34px;
+}
+.icon_left_right .icon-line .toggleDarkLight .toggle .slider.round:before {
+  border-radius: 50%;
 }
 
 /* ===== left sidebar ===== */
@@ -493,49 +531,54 @@ body {
   padding: 15px 25px;
   text-align: center;
   justify-content: center;
-  display: flex;
-  /* Optional styles for better visual appearance */
 }
-.container__right-sidebar .toggleDarkLight .toggle-switch {
+.container__right-sidebar .toggleDarkLight h3 {
+  font-size: 13px;
+  color: #000;
+  margin-bottom: 20px;
+}
+.container__right-sidebar .toggleDarkLight .toggle {
   position: relative;
   display: inline-block;
-  width: 60px;
-  height: 34px;
-  background-color: #ccc;
-  border-radius: 34px;
-  overflow: hidden;
+  width: 55px;
+  height: 23px;
+}
+.container__right-sidebar .toggleDarkLight .toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.container__right-sidebar .toggleDarkLight .toggle .slider {
+  position: absolute;
   cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
 }
-.container__right-sidebar .toggleDarkLight .toggle-switch .slider {
+.container__right-sidebar .toggleDarkLight .toggle .slider:before {
   position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 30px;
-  height: 30px;
-  background-color: #fff;
-  border-radius: 50%;
-  transition: transform 0.3s;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+  content: "";
+  height: 15px;
+  width: 15px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
 }
-.container__right-sidebar .toggleDarkLight .toggle-switch .toggle-label {
-  position: absolute;
-  top: 50%;
-  left: 45px;
-  transform: translateY(-50%);
-  color: #fff;
+.container__right-sidebar .toggleDarkLight .toggle input:checked + .slider {
+  background-color: #18191a;
 }
-.container__right-sidebar .toggleDarkLight .toggle-switch.active .slider {
+.container__right-sidebar .toggleDarkLight .toggle input:checked + .slider:before {
   transform: translateX(26px);
 }
-.container__right-sidebar .toggleDarkLight .toggle-switch.active .toggle-label {
-  left: 5px;
-  color: #000;
+.container__right-sidebar .toggleDarkLight .toggle .slider.round {
+  border-radius: 34px;
 }
-.container__right-sidebar .toggleDarkLight .toggle-switch .slider {
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
-}
-.container__right-sidebar .toggleDarkLight .toggle-switch.active {
-  background-color: #000;
+.container__right-sidebar .toggleDarkLight .toggle .slider.round:before {
+  border-radius: 50%;
 }
 
 /* ===== main sidebar ===== */

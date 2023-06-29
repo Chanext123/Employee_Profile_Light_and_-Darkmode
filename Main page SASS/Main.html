@@ -54,10 +54,6 @@
 
     </nav>
 
-
-    <!-- ----------- for the mobileversion left and right side icon ------------- -->
-
-
     <!-- ===== navbar close ===== -->
 
     <div class="container">
@@ -402,25 +398,17 @@
 
             <div class="toggleDarkLight">
                 <h3>Mode</h3>
-                <!-- <div class="toggle">
-                    <img src="image/light.png" alt="night-mode" id="darkD" />
-                    <img class="light" src="image/dark.png" alt="light-mode" id="lightD" />
-                </div> -->
-
-                <div class="toggle-switch">
-                    <div class="slider" id="darkD"></div>
-                    <div class="toggle-label" id="lightD">Night Mode</div>
-                </div>
-
+                <label class="toggle">
+                    <input type="checkbox" id="themeToggle" />
+                    <span class="slider round"></span>
+                </label>
             </div>
 
 
         </div>
     </div>
 
-
-
-    <!-- ==================== sicky icon ============================= -->
+    <!-- ==================== sticky icon ============================= -->
     <div class="footer">
         <div class="icon_left_right">
             <div class="icon-line">
@@ -440,10 +428,13 @@
                     <i class="fa-solid fa-link"></i>
                 </div>
 
-                <div class="toggle">
-                    <img src="image/light.png" alt="night-mode" id="dark" />
-                    <img class="light" src="image/dark.png" alt="light-mode" id="light" />
+                <div class="toggleDarkLight">
+                    <label class="toggle">
+                        <input type="checkbox" id="themeMobile" />
+                        <span class="slider round"></span>
+                    </label>
                 </div>
+    
 
 
             </div>
